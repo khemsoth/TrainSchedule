@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,45 @@
     <title>Train Schedule</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="assets/javascript/app.js"></script>
-    
+  
 </head>
+
 <body>
-    
+    <div id="header">
+        Train Things Are Happening!!!
+    </div>
+
+    <div id="schedule">
+        <title>Train Schedule</title>
+        <table>
+            <tr>
+                <th>Train Name</th>
+                <th>Destination</th>
+                <th>Frequency</th>
+                <th>Next Arrival</th>
+                <th>Minutes Away</th>
+            </tr>
+        </table>
+    </div>
+
+    <div id="info-input">
+        <title>Add Train</title>
+        <form action="submit">
+            <p>Train Name:</p>
+            <input type="text" name="name" id="input-name">
+            <p>Destination:</p>
+            <input type="text" name="destination" id="input-dest">
+            <p>First Train Time (Military Time):</p>
+            <input type="text" name="first-train" id="input-first">
+            <p>Frequency (minutes):</p>
+            <input type="text" name="frequency" id="input-freq">
+            <br>
+            <button type="submit" id="submitButton">Submit</button>
+        </form>
+    </div>
 </body>
+
 </html>
