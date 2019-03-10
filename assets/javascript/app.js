@@ -16,18 +16,25 @@
   // Pull from Firebase to update values
   // Display values on website
 
-  var trainName = "";
-  var destination = "";
-  var firstTrain = "";
-  var frequency = "";
 
-$("#submitButton").on("click", function() {
-    trainName = $("#input-name").val().trim();
-    destination = $("#input-dest").val().trim();
-    firstTrain = $("#input-first").val().trim();
-    frequency = $("#input-freq").val().trim();
-    console.log(trainName);
-    console.log(destination);
-    console.log(firstTrain);
-    console.log(frequency);
+
+$("#submitButton").on("click", function(event) {
+    event.preventDefault();
+    var trainName = $("#input-name").val().trim();
+    var destination = $("#input-dest").val().trim();
+    var firstTrain = $("#input-first").val().trim();
+    var frequency = $("#input-freq").val().trim();
+
+    var newTrain = {
+      train: trainName,
+      destination: destination,
+      first: firstTrain,
+      frequency: frequency
+    }
+
+    $("#input-name").val("");
+    $("#input-dest").val("");
+    $("#input-first").val("");
+    $("#input-freq").val("");
+    console.log(newTrain);
 })
