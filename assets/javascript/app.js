@@ -40,18 +40,19 @@ $("#submitButton").on("click", function(event) {
     $("#input-dest").val("");
     $("#input-first").val("");
     $("#input-freq").val("");
-    console.log(newTrain);
 })
 
 database.ref().on("child_added", function(trainAdded) {
-  var trainName = trainAdded.val().name;
+  var trainName = trainAdded.val().train;
   var destination = trainAdded.val().destination;
   var firstTrain = trainAdded.val().first;
   var frequency = trainAdded.val().frequency;
-
   
- // $("tbody").append("<tr>");
- // $("tr").append("<td>" + trainName);
+  $("tbody").append("<tr id='dynList'>");
+  $("#dynList").append("<td>" + trainName);
+  $("#dynList").append("<td>" + destination);
+  $("#dynList").append("<td>" + firstTrain);
+  $("#dynList").append("<td>" + frequency);
 
 })
 
