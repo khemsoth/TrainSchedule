@@ -1,0 +1,37 @@
+body {
+    padding: 5px;
+}
+
+tbody tr:hover {
+    background-color: #07aec8 !important;
+}
+
+input {
+    background-color: #faecd4 !important; 
+}
+
+h4 {
+    text-align: center;
+}
+
+#header {
+    text-align: center;
+    background-color: #17a2b8;
+}
+
+#info-input form {
+    border: 2px solid #07aec8;
+    padding: 2px;
+    background-color: #fff;
+}
+
+#info-input {
+    background-color: #07aec8;
+}
+
+.jumbotron {
+    background-color: transparent !important;
+}
+
+
+

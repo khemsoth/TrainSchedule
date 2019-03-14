@@ -11,35 +11,26 @@
   firebase.initializeApp(config);
 
   var database = firebase.database();
-
-  // Create variables to hold form input
-  // Fill variables with value from form input
-  // Push input values to Firebase
-  // Pull from Firebase to update values
-  // Display values on website
-
-
-
+  
 $("#submitButton").on("click", function(event) {
     event.preventDefault();
     var trainName = $("#input-name").val().trim();
     var destination = $("#input-dest").val().trim();
     var firstTrain = $("#input-first").val().trim();
     var frequency = $("#input-freq").val().trim();
-
     var newTrain = {
       train: trainName,
       destination: destination,
       first: firstTrain,
       frequency: frequency
     }
-
     database.ref().push(newTrain);
-
     $("#input-name").val("");
     $("#input-dest").val("");
     $("#input-first").val("");
     $("#input-freq").val("");
+     // var form = $("form");
+     // form.reset();
 })
 
 database.ref().on("child_added", function(trainAdded) {
@@ -47,13 +38,32 @@ database.ref().on("child_added", function(trainAdded) {
   var destination = trainAdded.val().destination;
   var firstTrain = trainAdded.val().first;
   var frequency = trainAdded.val().frequency;
-  
-  $("tbody").append("<tr id='dynList'>");
-  $("#dynList").append("<td>" + trainName);
-  $("#dynList").append("<td>" + destination);
-  $("#dynList").append("<td>" + firstTrain);
-  $("#dynList").append("<td>" + frequency);
-
+ // var nextArrival = moment().add(minutesAway.val().trim(), moment());
+ // var minutesAway
+  var dynRow = $("<tr>").append(
+  $("<td>").text(trainName),
+  $("<td>").text(destination),
+  $("<td>").text(frequency)
+ // getNextArrival(),
+ // $("<td>").text(minutesAway)
+);
+$("tbody").append(dynRow);
+  })
+/*var timeNow = moment().format('HHmm');
+var x = timeNow - firstTrain;
+function getNextArrival() {
+  if(timeNow > "2000") {
+    $('<td>').text(firstTrain);
+  }
+  else if(x < frequency) {
+    $("<td>").text(timeNow + x);
+  }
+  else {
+    console.log("oops");
+  }
+}
+console.log(timeNow);
+console.log(firstTrain);
+console.log(x);
 })
-
-
+*/
